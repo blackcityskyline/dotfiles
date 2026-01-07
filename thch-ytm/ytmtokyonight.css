@@ -1,0 +1,197 @@
+/* Tokyo Night для YouTube Music - Правильно оптимизированная версия */
+
+:root {
+  --bg: #1a1b26;
+  --bg-light: #24283b;
+  --text: #c0caf5;
+  --accent: #7aa2f7;
+  --border: #3b4261;
+}
+
+/* ПЕРЕОПРЕДЕЛЕНИЕ СТАНДАРТНЫХ ПЕРЕМЕННЫХ YT MUSIC */
+:root {
+  /* Основные цвета фона */
+  --ytmusic-general-background-a: var(--bg) !important;
+  --ytmusic-general-background-c: var(--bg) !important;
+  --ytmusic-brand-background-solid: var(--bg-light) !important;
+  --ytmusic-background: var(--bg) !important;
+  
+  /* Текст */
+  --ytmusic-text-primary: var(--text) !important;
+  --ytmusic-text-secondary: var(--text) !important;
+  
+  /* Фоны плеера */
+  --ytmusic-player-bar-background: var(--bg-light) !important;
+  --ytmusic-player-page-background: var(--bg) !important;
+  
+  /* Навигация */
+  --ytmusic-nav-bar: var(--bg-light) !important;
+  
+  /* Более глубокие переменные YouTube */
+  --yt-spec-general-background-a: var(--bg) !important;
+  --yt-spec-general-background-b: var(--bg) !important;
+  --yt-spec-general-background-c: var(--bg) !important;
+  --yt-spec-brand-background-solid: var(--bg-light) !important;
+  --yt-spec-base-background: var(--bg) !important;
+  --yt-spec-raised-background: var(--bg-light) !important;
+  --yt-spec-menu-background: var(--bg-light) !important;
+  
+  --yt-spec-text-primary: var(--text) !important;
+  --yt-spec-text-secondary: var(--text) !important;
+  
+  /* Акцентные цвета */
+  --ytmusic-call-to-action: var(--accent) !important;
+  --ytmusic-themed-blue: var(--accent) !important;
+  --ytmusic-focus-active: var(--accent) !important;
+  --yt-spec-call-to-action: var(--accent) !important;
+  
+  /* Границы и разделители */
+  --ytmusic-divider: var(--border) !important;
+  --yt-spec-outline: var(--border) !important;
+}
+
+/* ===== ТОЛЬКО КРИТИЧЕСКИЕ ОПТИМИЗАЦИИ ===== */
+/* 1. УБИРАЕМ САМЫЙ ТЯЖЁЛЫЙ ЭФФЕКТ - backdrop-filter */
+#nav-bar-background {
+  backdrop-filter: none !important;
+  background: var(--bg-light) !important; /* solid вместо полупрозрачного */
+}
+
+/* 2. УБИРАЕМ transform НА КАРТОЧКАХ (GPU acceleration) */
+ytmusic-card:hover,
+ytmusic-two-row-item-renderer:hover {
+  transform: none !important;
+  border-color: var(--accent) !important;
+}
+
+/* 3. НЕ ТРОГАЕМ transition! Оставляем как есть. */
+/* transition: none даёт обратный эффект - браузер чаще пересчитывает стили */
+
+/* ===== ОСНОВНЫЕ СТИЛИ (оригинальные) ===== */
+/* Фон */
+ytmusic-app {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+/* Боковая панель */
+#guide-content {
+  background: var(--bg-light) !important;
+  border-right: 1px solid var(--border) !important;
+}
+
+/* Элементы меню */
+ytmusic-guide-entry-renderer {
+  color: var(--text) !important;
+  border-radius: 6px !important;
+  margin: 4px 8px !important;
+}
+
+ytmusic-guide-entry-renderer:hover {
+  background: rgba(122, 162, 247, 0.1) !important;
+}
+
+ytmusic-guide-entry-renderer[active] {
+  background: rgba(122, 162, 247, 0.15) !important;
+  color: var(--accent) !important;
+}
+
+/* Верхняя панель */
+#nav-bar-background {
+  /* backdrop-filter уже убран выше */
+  border-bottom: 1px solid var(--border) !important;
+}
+
+/* Поиск */
+ytmusic-search-box {
+  background: var(--bg-light) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 8px !important;
+  color: var(--text) !important;
+}
+
+/* Карточки */
+ytmusic-card,
+ytmusic-two-row-item-renderer {
+  background: var(--bg-light) !important;
+  border-radius: 8px !important;
+  border: 1px solid transparent !important;
+}
+
+ytmusic-card:hover,
+ytmusic-two-row-item-renderer:hover {
+  border-color: var(--accent) !important;
+  /* transform убран выше */
+}
+
+/* Плеер */
+ytmusic-player-bar {
+  background: var(--bg-light) !important;
+  border-top: 1px solid var(--border) !important;
+}
+
+#progress-bar {
+  --paper-progress-active-color: var(--accent) !important;
+}
+
+/* Кнопки плеера */
+#play-pause-button:hover,
+#next-button:hover,
+#previous-button:hover {
+  color: var(--accent) !important;
+}
+
+/* Треки в списке */
+ytmusic-playlist-item:hover {
+  background: rgba(122, 162, 247, 0.05) !important;
+}
+
+ytmusic-playlist-item[selected] {
+  background: rgba(122, 162, 247, 0.1) !important;
+  color: var(--accent) !important;
+}
+
+/* Кнопки */
+paper-button,
+yt-button-renderer {
+  background: var(--bg-light) !important;
+  color: var(--text) !important;
+  border-radius: 6px !important;
+  border: 1px solid var(--border) !important;
+}
+
+paper-button:hover,
+yt-button-renderer:hover {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+}
+
+/* Меню */
+paper-listbox {
+  background: var(--bg-light) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 8px !important;
+}
+
+/* ===== ДОПОЛНИТЕЛЬНЫЕ ФИКСЫ ===== */
+/* Фоны для Home и плеера */
+ytmusic-browse-response,
+#page-container.ytmusic-browse-response,
+ytmusic-player-page {
+  background-color: var(--bg) !important;
+}
+
+/* Очередь треков */
+ytmusic-player-queue,
+#queue.ytmusic-player-queue {
+  background-color: var(--bg-light) !important;
+}
+
+/* ===== ЕСЛИ ВСЁ РАВНО ГРУЗИТ - ДОБАВЬТЕ ЭТО ===== */
+/* Отключаем сложные вычисления только для слабых устройств */
+@media (max-width: 768px) {
+  ytmusic-card,
+  ytmusic-two-row-item-renderer {
+    will-change: auto !important;
+  }
+}

@@ -1,0 +1,6 @@
+auth_type = "Browser"
+downloader_type = "YtDlp"
+yt_dlp_command = "yt-dlp"
+
+[player]
+volume = 70

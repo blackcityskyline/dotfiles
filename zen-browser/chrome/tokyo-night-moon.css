@@ -1,0 +1,220 @@
+/* ============================================
+   Tokyo Night Moon Theme for Zen Browser
+   Based on Kitty theme colors
+   Optimized for astigmatism & myopia
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+/* ========== TOKYO NIGHT MOON COLOR SCHEME ========== */
+:root {
+  /* Base colors from Tokyo Night Moon */
+  --tokyo-bg: #222436;
+  --tokyo-fg: #c8d3f5;
+  --tokyo-selection-bg: #2d3f76;
+  --tokyo-selection-fg: #c8d3f5;
+  --tokyo-url: #4fd6be;
+  --tokyo-cursor: #c8d3f5;
+  --tokyo-cursor-text: #222436;
+  
+  /* Accent colors */
+  --tokyo-red: #ff757f;
+  --tokyo-green: #c3e88d;
+  --tokyo-yellow: #ffc777;
+  --tokyo-blue: #82aaff;
+  --tokyo-purple: #c099ff;
+  --tokyo-cyan: #86e1fc;
+  --tokyo-gray: #828bb8;
+  
+  /* Font settings */
+  --tokyo-font-size: 16px;
+  --tokyo-line-height: 1.8;
+  --tokyo-letter-spacing: 0.5px;
+}
+
+/* ========== APPLY TOKYO COLORS TO ZEN ========== */
+#main-window {
+  background-color: var(--tokyo-bg) !important;
+  color: var(--tokyo-fg) !important;
+}
+
+/* Navigation toolbar */
+#nav-bar {
+  background-color: var(--tokyo-bg) !important;
+  border-bottom: 1px solid #2f334d !important;
+}
+
+/* URL bar */
+#urlbar {
+  background-color: #1b1d2b !important; /* Tokyo Night color0 */
+  color: var(--tokyo-fg) !important;
+  border: 2px solid #444a73 !important; /* Tokyo Night color8 */
+  border-radius: 8px !important;
+  font-family: "JetBrains Mono", monospace !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+}
+
+#urlbar-input {
+  color: var(--tokyo-fg) !important;
+}
+
+.urlbarView {
+  background-color: #1b1d2b !important;
+  border: 2px solid #2f334d !important;
+  border-radius: 8px !important;
+}
+
+/* Tabs */
+.tabbrowser-tab {
+  color: var(--tokyo-fg) !important;
+  font-family: "JetBrains Mono", monospace !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+}
+
+.tab-background {
+  background-color: #2f334d !important;
+  border-radius: 6px 6px 0 0 !important;
+}
+
+.tab-background[selected="true"] {
+  background-color: var(--tokyo-blue) !important;
+}
+
+.tab-label[selected="true"] {
+  color: var(--tokyo-cursor-text) !important;
+  font-weight: 700 !important;
+}
+
+/* Bookmarks toolbar */
+#PersonalToolbar {
+  background-color: var(--tokyo-bg) !important;
+  border-top: 1px solid #2f334d !important;
+}
+
+.bookmark-item {
+  color: var(--tokyo-fg) !important;
+  font-family: "JetBrains Mono", monospace !important;
+  font-size: 14px !important;
+}
+
+/* Buttons */
+.toolbarbutton-1 {
+  color: var(--tokyo-fg) !important;
+  background-color: #2f334d !important;
+  border-radius: 6px !important;
+}
+
+.toolbarbutton-1:hover {
+  background-color: #444a73 !important;
+}
+
+/* Sidebar */
+#sidebar-box {
+  background-color: #1b1d2b !important;
+}
+
+#sidebar-header {
+  background-color: #2f334d !important;
+  color: var(--tokyo-fg) !important;
+  font-family: "JetBrains Mono", monospace !important;
+  font-weight: 600 !important;
+}
+
+/* Menus */
+menupopup, panel {
+  background-color: #1b1d2b !important;
+  color: var(--tokyo-fg) !important;
+  border: 2px solid #2f334d !important;
+  border-radius: 8px !important;
+}
+
+menuitem, menu {
+  font-family: "JetBrains Mono", monospace !important;
+  font-size: 14px !important;
+  color: var(--tokyo-fg) !important;
+}
+
+menuitem:hover, menu:hover {
+  background-color: #2d3f76 !important;
+  color: var(--tokyo-fg) !important;
+}
+
+/* Scrollbars */
+scrollbar {
+  width: 14px !important;
+}
+
+scrollbar thumb {
+  background-color: #444a73 !important;
+  border-radius: 7px !important;
+}
+
+scrollbar thumb:hover {
+  background-color: var(--tokyo-blue) !important;
+}
+
+/* ========== OPTIMIZATIONS FOR ASTIGMATISM ========== */
+/* Increase font size and spacing */
+* {
+  font-family: "JetBrains Mono", monospace !important;
+  font-size: var(--tokyo-font-size) !important;
+  font-weight: 500 !important; /* Medium for better contrast */
+  line-height: var(--tokyo-line-height) !important;
+  letter-spacing: var(--tokyo-letter-spacing) !important;
+}
+
+/* Remove italics (hard to read with astigmatism) */
+* {
+  font-style: normal !important;
+}
+
+/* Better text contrast */
+#urlbar, .tabbrowser-tab, menuitem, .bookmark-item {
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Improve separator visibility */
+separator {
+  background-color: #2f334d !important;
+  height: 1px !important;
+}
+
+/* Highlight current element */
+#urlbar:focus, .tabbrowser-tab[selected="true"] {
+  box-shadow: 0 0 0 2px var(--tokyo-blue) !important;
+}
+
+/* ========== TOKYO NIGHT MOON SPECIFIC ELEMENTS ========== */
+/* Active border */
+.active-border {
+  border-color: var(--tokyo-blue) !important;
+}
+
+/* Inactive border */
+.inactive-border {
+  border-color: #2f334d !important;
+}
+
+/* Link colors */
+a {
+  color: var(--tokyo-url) !important;
+}
+
+/* Success/error colors */
+.success {
+  color: var(--tokyo-green) !important;
+}
+
+.error {
+  color: var(--tokyo-red) !important;
+}
+
+.warning {
+  color: var(--tokyo-yellow) !important;
+}
+
+.info {
+  color: var(--tokyo-cyan) !important;
+}

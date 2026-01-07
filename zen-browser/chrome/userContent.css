@@ -1,0 +1,815 @@
+/* Tokyo Night Moon userContent.css - Приглушённые белые */
+/* Adapted from Catppuccin Macchiato Blue */
+
+@media (prefers-color-scheme: dark) {
+
+  /* Common variables affecting all pages */
+  @-moz-document url-prefix("about:") {
+    :root {
+      /* Основные цвета текста - приглушённые серо-голубые */
+      --in-content-page-color: #b4c2f0 !important;           /* Приглушённый светло-голубой */
+      --color-accent-primary: #82aaff !important;            /* Tokyo blue */
+      --color-accent-primary-hover: #739df7 !important;      /* Slightly darker blue */
+      --color-accent-primary-active: #628cf6 !important;     /* Even darker blue */
+      background-color: #222436 !important;                  /* Tokyo background */
+      --in-content-page-background: #222436 !important;      /* Tokyo background */
+      
+      /* Additional Tokyo variables with muted whites */
+      --tokyo-bg: #222436 !important;
+      --tokyo-fg: #b4c2f0 !important;                       /* Приглушённый основной текст */
+      --tokyo-fg-bright: #c8d3f5 !important;                /* Яркий текст для заголовков */
+      --tokyo-fg-muted: #a0acc8 !important;                 /* Менее важный текст */
+      --tokyo-blue: #82aaff !important;
+      --tokyo-red: #ff757f !important;
+      --tokyo-green: #c3e88d !important;
+      --tokyo-yellow: #ffc777 !important;
+      --tokyo-purple: #c099ff !important;
+      --tokyo-cyan: #86e1fc !important;
+      --tokyo-gray: #828bb8 !important;
+      --tokyo-gray-light: #9399b2 !important;               /* Светло-серый для текста */
+    }
+
+    /* General page styling - приглушённый текст */
+    body {
+      background-color: var(--tokyo-bg) !important;
+      color: var(--tokyo-fg) !important;                    /* Приглушённый основной */
+    }
+
+    /* Заголовки - чуть ярче */
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--tokyo-fg-bright) !important;             /* Ярче для заголовков */
+      font-weight: 600 !important;
+    }
+
+    /* Основной текст */
+    p, div, span, article, section {
+      color: var(--tokyo-fg) !important;                    /* Приглушённый */
+    }
+
+    /* Менее важный текст */
+    small, .muted, .secondary {
+      color: var(--tokyo-fg-muted) !important;              /* Ещё более приглушённый */
+    }
+
+    /* Links */
+    a, a:link {
+      color: var(--tokyo-blue) !important;
+    }
+
+    a:hover, a:active {
+      color: var(--tokyo-cyan) !important;
+    }
+
+    a:visited {
+      color: var(--tokyo-purple) !important;
+    }
+
+    /* Buttons */
+    button, .button {
+      background-color: #2f334d !important;
+      color: var(--tokyo-fg) !important;                    /* Приглушённый текст на кнопках */
+      border-color: #444a73 !important;
+    }
+
+    button:hover, .button:hover {
+      background-color: #444a73 !important;
+      border-color: var(--tokyo-blue) !important;
+      color: var(--tokyo-fg-bright) !important;             /* Чуть ярче при наведении */
+    }
+
+    /* Input fields */
+    input, textarea, select {
+      background-color: #1b1d2b !important;
+      color: var(--tokyo-fg) !important;                    /* Приглушённый текст ввода */
+      border: 1px solid #2f334d !important;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--tokyo-blue) !important;
+      box-shadow: 0 0 0 1px var(--tokyo-blue) !important;
+      color: var(--tokyo-fg-bright) !important;             /* Ярче при фокусе */
+    }
+
+    /* Placeholder текст */
+    ::placeholder, ::-moz-placeholder {
+      color: var(--tokyo-gray) !important;                  /* Серый для placeholder */
+      opacity: 0.7 !important;
+    }
+  }
+
+  /* Variables and styles specific to about:newtab and about:home */
+  @-moz-document url("about:newtab"), url("about:home") {
+
+    :root {
+      --newtab-background-color: #222436 !important;
+      --newtab-background-color-secondary: #2f334d !important;
+      --newtab-element-hover-color: #444a73 !important;
+      --newtab-text-primary-color: #b4c2f0 !important;      /* Приглушённый основной */
+      --newtab-text-secondary-color: #a0acc8 !important;    /* Вторичный текст */
+      --newtab-wordmark-color: #b4c2f0 !important;          /* Приглушённый */
+      --newtab-primary-action-background: #82aaff !important;
+      
+      /* Tokyo Night Moon specific */
+      --newtab-accent-red: #ff757f !important;
+      --newtab-accent-green: #c3e88d !important;
+      --newtab-accent-yellow: #ffc777 !important;
+      --newtab-accent-purple: #c099ff !important;
+      --newtab-accent-cyan: #86e1fc !important;
+    }
+
+    .icon {
+      color: #82aaff !important;
+    }
+
+    .search-wrapper .logo-and-wordmark .logo {
+      background: url("chrome://branding/content/about-logo.svg") no-repeat center !important;
+      display: inline-block !important;
+      height: 82px !important;
+      width: 82px !important;
+      background-size: 82px !important;
+      filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(195deg) opacity(0.9) !important;
+    }
+
+    @media (max-width: 609px) {
+      .search-wrapper .logo-and-wordmark .logo {
+        background-size: 64px !important;
+        height: 64px !important;
+        width: 64px !important;
+      }
+    }
+
+    /* Заголовки карточек - чуть ярче */
+    .card-title {
+      color: #c8d3f5 !important;                            /* Ярче для заголовков */
+    }
+
+    .card-outer:is(:hover, :focus, .active):not(.placeholder) .card-title {
+      color: #82aaff !important;                            /* Синий при наведении */
+    }
+
+    /* Описание карточек - приглушённое */
+    .card-description {
+      color: #a0acc8 !important;                            /* Приглушённый серо-голубой */
+    }
+
+    .top-site-outer .search-topsite {
+      background-color: #82aaff !important;
+      color: #222436 !important;
+    }
+
+    .compact-cards .card-outer .card-context .card-context-icon.icon-download {
+      fill: #c3e88d !important;
+    }
+
+    /* Top sites tiles */
+    .top-site-outer {
+      background-color: #2f334d !important;
+      border-color: #444a73 !important;
+    }
+
+    .top-site-outer:hover {
+      background-color: #444a73 !important;
+      border-color: #82aaff !important;
+    }
+
+    /* Текст в топ-сайтах */
+    .top-site-title {
+      color: #b4c2f0 !important;                            /* Приглушённый */
+    }
+
+    /* Search bar */
+    .search-inner-wrapper {
+      background-color: #1b1d2b !important;
+      border-color: #2f334d !important;
+    }
+
+    .search-handoff-button {
+      background-color: #82aaff !important;
+      color: #222436 !important;
+    }
+
+    .search-handoff-button:hover {
+      background-color: #739df7 !important;
+    }
+
+    /* Текст в строке поиска */
+    .search-textbox {
+      color: #b4c2f0 !important;                            /* Приглушённый */
+    }
+
+    .search-textbox::placeholder {
+      color: #828bb8 !important;                            /* Серый placeholder */
+    }
+  }
+
+  /* Variables and styles specific to about:preferences */
+  @-moz-document url-prefix("about:preferences") {
+    :root {
+      --zen-colors-tertiary: #1b1d2b !important;
+      --in-content-text-color: #b4c2f0 !important;          /* Приглушённый основной */
+      --in-content-text-secondary: #a0acc8 !important;      /* Вторичный текст */
+      --link-color: #82aaff !important;
+      --link-color-hover: #739df7 !important;
+      --zen-colors-primary: #2f334d !important;
+      --in-content-box-background: #2f334d !important;
+      --zen-primary-color: #82aaff !important;
+      
+      /* Tokyo-specific additions */
+      --pref-bg: #222436 !important;
+      --pref-section-bg: #1b1d2b !important;
+      --pref-border: #2f334d !important;
+      --pref-text: #b4c2f0 !important;                      /* Приглушённый */
+      --pref-text-bright: #c8d3f5 !important;               /* Яркий для заголовков */
+    }
+
+    body {
+      background-color: var(--pref-bg) !important;
+      color: var(--pref-text) !important;                   /* Приглушённый */
+    }
+
+    /* Заголовки разделов - чуть ярче */
+    h1, h2, h3, .category-name, .section-title {
+      color: var(--pref-text-bright) !important;            /* Ярче для заголовков */
+    }
+
+    /* Описания и подписи - приглушённее */
+    .description, .caption, .help-text {
+      color: var(--in-content-text-secondary) !important;   /* Серо-голубой */
+    }
+
+    groupbox, moz-card {
+      background: #222436 !important;
+      border-color: #2f334d !important;
+    }
+
+    button,
+    groupbox menulist {
+      background: #2f334d !important;
+      color: #b4c2f0 !important;                            /* Приглушённый */
+      border: 1px solid #444a73 !important;
+    }
+
+    button:hover,
+    groupbox menulist:hover {
+      background: #444a73 !important;
+      border-color: #82aaff !important;
+      color: #c8d3f5 !important;                            /* Ярче при наведении */
+    }
+
+    .main-content {
+      background-color: #161822 !important;
+    }
+
+    /* Identity colors */
+    .identity-color-blue {
+      --identity-tab-color: #82aaff !important;
+      --identity-icon-color: #82aaff !important;
+    }
+
+    .identity-color-turquoise {
+      --identity-tab-color: #86e1fc !important;
+      --identity-icon-color: #86e1fc !important;
+    }
+
+    .identity-color-green {
+      --identity-tab-color: #c3e88d !important;
+      --identity-icon-color: #c3e88d !important;
+    }
+
+    .identity-color-yellow {
+      --identity-tab-color: #ffc777 !important;
+      --identity-icon-color: #ffc777 !important;
+    }
+
+    .identity-color-orange {
+      --identity-tab-color: #ff966c !important;
+      --identity-icon-color: #ff966c !important;
+    }
+
+    .identity-color-red {
+      --identity-tab-color: #ff757f !important;
+      --identity-icon-color: #ff757f !important;
+    }
+
+    .identity-color-pink {
+      --identity-tab-color: #f5c2e7 !important;
+      --identity-icon-color: #f5c2e7 !important;
+    }
+
+    .identity-color-purple {
+      --identity-tab-color: #c099ff !important;
+      --identity-icon-color: #c099ff !important;
+    }
+
+    /* Sections and categories */
+    .category {
+      background-color: #1b1d2b !important;
+      border-color: #2f334d !important;
+    }
+
+    .category:hover {
+      background-color: #2f334d !important;
+      border-color: #82aaff !important;
+    }
+
+    /* Текст в категориях */
+    .category .category-name {
+      color: #c8d3f5 !important;                            /* Ярче для имён категорий */
+    }
+
+    .category .category-description {
+      color: #a0acc8 !important;                            /* Приглушённое описание */
+    }
+
+    /* Checkboxes and radio buttons */
+    input[type="checkbox"], input[type="radio"] {
+      accent-color: #82aaff !important;
+    }
+
+    /* Labels */
+    label {
+      color: #b4c2f0 !important;                            /* Приглушённый */
+    }
+
+    /* Search in preferences */
+    #searchInput {
+      background-color: #1b1d2b !important;
+      color: #b4c2f0 !important;                            /* Приглушённый */
+      border-color: #2f334d !important;
+    }
+
+    #searchInput:focus {
+      border-color: #82aaff !important;
+      color: #c8d3f5 !important;                            /* Ярче при фокусе */
+    }
+
+    #searchInput::placeholder {
+      color: #828bb8 !important;                            /* Серый placeholder */
+    }
+  }
+
+  /* Variables and styles specific to about:addons */
+  @-moz-document url-prefix("about:addons") {
+    :root {
+      --zen-dark-color-mix-base: #1b1d2b !important;
+      --background-color-box: #222436 !important;
+      
+      /* Tokyo-specific */
+      --addon-card-bg: #2f334d !important;
+      --addon-card-hover: #444a73 !important;
+      --addon-border: #2f334d !important;
+      --addon-text: #b4c2f0 !important;                     /* Приглушённый */
+      --addon-text-bright: #c8d3f5 !important;              /* Яркий */
+    }
+
+    body {
+      background-color: #222436 !important;
+      color: var(--addon-text) !important;                  /* Приглушённый */
+    }
+
+    /* Заголовки аддонов */
+    .addon-name, .card-name {
+      color: var(--addon-text-bright) !important;           /* Ярче для названий */
+    }
+
+    /* Описание аддонов */
+    .addon-description, .card-description {
+      color: #a0acc8 !important;                            /* Приглушённое описание */
+    }
+
+    /* Addon cards */
+    .addon, .card {
+      background-color: var(--addon-card-bg) !important;
+      border-color: var(--addon-border) !important;
+    }
+
+    .addon:hover, .card:hover {
+      background-color: var(--addon-card-hover) !important;
+      border-color: #82aaff !important;
+    }
+
+    /* Search bar */
+    .search-textbox {
+      background-color: #1b1d2b !important;
+      color: #b4c2f0 !important;                            /* Приглушённый */
+      border-color: #2f334d !important;
+    }
+
+    .search-textbox:focus {
+      border-color: #82aaff !important;
+      color: #c8d3f5 !important;                            /* Ярче при фокусе */
+    }
+
+    .search-textbox::placeholder {
+      color: #828bb8 !important;                            /* Серый placeholder */
+    }
+
+    /* Buttons in addons manager */
+    .primary-button {
+      background-color: #82aaff !important;
+      color: #222436 !important;
+    }
+
+    .primary-button:hover {
+      background-color: #739df7 !important;
+    }
+
+    .secondary-button {
+      background-color: #2f334d !important;
+      color: #b4c2f0 !important;                            /* Приглушённый */
+    }
+
+    .secondary-button:hover {
+      background-color: #444a73 !important;
+      color: #c8d3f5 !important;                            /* Ярче при наведении */
+    }
+
+    /* Metadata аддонов */
+    .addon-meta, .card-meta {
+      color: #9399b2 !important;                            /* Светло-серый */
+    }
+  }
+
+  /* Variables and styles specific to about:protections */
+  @-moz-document url-prefix("about:protections") {
+    :root {
+      --zen-primary-color: #222436 !important;
+      
+      /* Protection category colors */
+      --social-color: #c099ff !important;
+      --coockie-color: #86e1fc !important;
+      --fingerprinter-color: #ffc777 !important;
+      --cryptominer-color: #b2b8ff !important;
+      --tracker-color: #c3e88d !important;
+      
+      /* Button colors */
+      --in-content-primary-button-background-hover: #444a73 !important;
+      --in-content-primary-button-text-color-hover: #c8d3f5 !important;
+      --in-content-primary-button-background: #2f334d !important;
+      --in-content-primary-button-text-color: #b4c2f0 !important; /* Приглушённый */
+      
+      /* Tokyo extras */
+      --protection-card-bg: #2f334d !important;
+      --protection-highlight: #82aaff !important;
+      --protection-text: #b4c2f0 !important;                /* Приглушённый */
+      --protection-text-bright: #c8d3f5 !important;         /* Яркий */
+    }
+
+    body {
+      background-color: #222436 !important;
+      color: var(--protection-text) !important;             /* Приглушённый */
+    }
+
+    /* Заголовки и важный текст */
+    h1, h2, h3, .section-title, .metric-title {
+      color: var(--protection-text-bright) !important;      /* Ярче */
+    }
+
+    /* Описания и детали */
+    .description, .detail-text, .explanation {
+      color: #a0acc8 !important;                            /* Приглушённый серо-голубой */
+    }
+
+    .card {
+      background-color: var(--protection-card-bg) !important;
+      border-color: #444a73 !important;
+    }
+
+    .card:hover {
+      border-color: var(--protection-highlight) !important;
+    }
+
+    /* Protection status indicators */
+    .protection-status-good {
+      color: #c3e88d !important;
+    }
+
+    .protection-status-warning {
+      color: #ffc777 !important;
+    }
+
+    .protection-status-bad {
+      color: #ff757f !important;
+    }
+
+    /* Progress bars */
+    progress {
+      accent-color: #82aaff !important;
+    }
+
+    progress::-moz-progress-bar {
+      background-color: #82aaff !important;
+    }
+
+    /* Graphs and charts */
+    .graph-bar {
+      fill: #82aaff !important;
+    }
+
+    .graph-bar:hover {
+      fill: #739df7 !important;
+    }
+
+    /* Report sections */
+    .report-section {
+      background-color: #1b1d2b !important;
+      border-color: #2f334d !important;
+    }
+
+    /* Текст в отчётах */
+    .report-title {
+      color: var(--protection-text-bright) !important;
+    }
+
+    .report-detail {
+      color: var(--protection-text) !important;
+    }
+
+    /* Toggle switches */
+    .toggle-container .toggle-button {
+      background-color: #2f334d !important;
+    }
+
+    .toggle-container .toggle-button[aria-checked="true"] {
+      background-color: #82aaff !important;
+    }
+
+    /* Label тогглов */
+    .toggle-label {
+      color: #b4c2f0 !important;                            /* Приглушённый */
+    }
+  }
+
+  /* ========== ДОПОЛНИТЕЛЬНЫЕ ПРИГЛУШЁННЫЕ ЦВЕТА ========== */
+
+  /* Scrollbars across all about: pages */
+  @-moz-document url-prefix("about:") {
+    scrollbar {
+      scrollbar-color: #2f334d #1b1d2b !important;
+    }
+
+    scrollbar thumb {
+      background-color: #2f334d !important;
+      border-radius: 4px !important;
+    }
+
+    scrollbar thumb:hover {
+      background-color: #444a73 !important;
+    }
+
+    scrollbar track {
+      background-color: #1b1d2b !important;
+    }
+  }
+
+  /* Code blocks and preformatted text */
+  @-moz-document url-prefix("about:") {
+    pre, code, .code {
+      background-color: #1b1d2b !important;
+      color: #b4c2f0 !important;                            /* Приглушённый код */
+      border: 1px solid #2f334d !important;
+      font-family: "JetBrains Mono", "Cascadia Code", monospace !important;
+    }
+
+    /* Синтаксис в коде */
+    .keyword, .function, .class-name {
+      color: #c8d3f5 !important;                            /* Ярче для ключевых слов */
+    }
+
+    .comment, .string {
+      color: #a0acc8 !important;                            /* Приглушённый для комментариев */
+    }
+
+    pre {
+      padding: 12px !important;
+      border-radius: 6px !important;
+    }
+  }
+
+  /* Tables */
+  @-moz-document url-prefix("about:") {
+    table {
+      border-color: #2f334d !important;
+    }
+
+    th {
+      background-color: #1b1d2b !important;
+      color: #c8d3f5 !important;                            /* Ярче для заголовков таблиц */
+      border-color: #2f334d !important;
+      font-weight: 600 !important;
+    }
+
+    td {
+      background-color: #222436 !important;
+      color: #b4c2f0 !important;                            /* Приглушённый для данных */
+      border-color: #2f334d !important;
+    }
+
+    tr:hover td {
+      background-color: #2f334d !important;
+      color: #c8d3f5 !important;                            /* Ярче при наведении */
+    }
+  }
+
+  /* Tooltips */
+  @-moz-document url-prefix("about:") {
+    tooltip {
+      background-color: #1b1d2b !important;
+      color: #b4c2f0 !important;                            /* Приглушённый текст в тултипах */
+      border: 1px solid #2f334d !important;
+      border-radius: 4px !important;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+    }
+  }
+
+  /* Selection colors */
+  @-moz-document url-prefix("about:") {
+    ::selection {
+      background-color: #2d3f76 !important;
+      color: #c8d3f5 !important;                            /* Яркий текст при выделении */
+    }
+
+    ::-moz-selection {
+      background-color: #2d3f76 !important;
+      color: #c8d3f5 !important;
+    }
+  }
+
+  /* Disabled elements */
+  @-moz-document url-prefix("about:") {
+    [disabled], :disabled {
+      opacity: 0.5 !important;
+      color: #828bb8 !important;                            /* Серый для disabled */
+    }
+  }
+
+  /* Focus states for accessibility */
+  @-moz-document url-prefix("about:") {
+    :focus-visible {
+      outline: 2px solid #82aaff !important;
+      outline-offset: 2px !important;
+      border-radius: 2px !important;
+    }
+  }
+
+  /* Zen-specific elements */
+  @-moz-document url-prefix("about:") {
+    .zen-element {
+      background-color: #222436 !important;
+      color: #b4c2f0 !important;                            /* Приглушённый */
+    }
+
+    .zen-element:hover {
+      background-color: #2f334d !important;
+      color: #c8d3f5 !important;                            /* Ярче при наведении */
+    }
+
+    .zen-element:focus {
+      border-color: #82aaff !important;
+    }
+
+    .zen-title {
+      color: #c8d3f5 !important;                            /* Ярче для заголовков Zen */
+    }
+
+    .zen-description {
+      color: #a0acc8 !important;                            /* Приглушённое описание */
+    }
+  }
+}
+
+/* ========== ИЕРАРХИЯ ЦВЕТОВ ТЕКСТА ========== */
+/* Для лучшей читаемости при астигматизме */
+
+@-moz-document url-prefix("about:") {
+  /* Уровень 1: Самый важный текст (заголовки, акценты) */
+  .text-level-1, 
+  h1, h2, h3, 
+  .primary-title, 
+  .important-text,
+  strong, b {
+    color: #c8d3f5 !important;        /* Яркий серо-голубой */
+    font-weight: 600 !important;
+  }
+
+  /* Уровень 2: Основной текст */
+  .text-level-2,
+  body, 
+  p, 
+  div, 
+  span, 
+  article, 
+  section {
+    color: #b4c2f0 !important;        /* Приглушённый серо-голубой */
+  }
+
+  /* Уровень 3: Вторичный текст (описания, подписи) */
+  .text-level-3,
+  small, 
+  .muted, 
+  .secondary,
+  .description,
+  .caption {
+    color: #a0acc8 !important;        /* Ещё более приглушённый */
+  }
+
+  /* Уровень 4: Третичный текст (метаданные, даты) */
+  .text-level-4,
+  .meta, 
+  .timestamp, 
+  .footnote {
+    color: #9399b2 !important;        /* Светло-серый */
+  }
+
+  /* Уровень 5: Placeholder и disabled */
+  .text-level-5,
+  ::placeholder,
+  [disabled] {
+    color: #828bb8 !important;        /* Серый */
+    opacity: 0.7 !important;
+  }
+}
+
+/* ========== FONT OPTIMIZATIONS FOR ASTIGMATISM ========== */
+@-moz-document url-prefix("about:") {
+  * {
+    font-smooth: always !important;
+    -webkit-font-smoothing: antialiased !important;
+    text-rendering: optimizeLegibility !important;
+  }
+
+  body {
+    font-family: "JetBrains Mono", "Inter", "Segoe UI", system-ui, sans-serif !important;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    letter-spacing: 0.01em !important;
+  }
+
+  /* Увеличенный межбуквенный интервал для заголовков */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600 !important;
+    letter-spacing: 0.02em !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Code and monospace */
+  code, pre, .code, .monospace {
+    font-family: "JetBrains Mono", "Cascadia Code", "Fira Code", monospace !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    letter-spacing: 0.01em !important;
+  }
+
+  /* Убраны курсивы для лучшей читаемости */
+  * {
+    font-style: normal !important;
+  }
+
+  /* Links with better visibility */
+  a {
+    text-decoration: underline !important;
+    text-underline-offset: 2px !important;
+    text-decoration-thickness: 1px !important;
+  }
+
+  a:hover {
+    text-decoration-thickness: 2px !important;
+  }
+}
+
+/* High contrast mode для максимальной читаемости */
+@media (prefers-contrast: more) {
+  @-moz-document url-prefix("about:") {
+    :root {
+      --tokyo-fg: #ffffff !important;        /* Чистый белый */
+      --tokyo-fg-bright: #ffffff !important;
+    }
+    
+    body {
+      color: #ffffff !important;
+    }
+    
+    h1, h2, h3 {
+      color: #ffffff !important;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+    }
+  }
+}
+
+/* Print styles */
+@media print {
+  @-moz-document url-prefix("about:") {
+    body {
+      background-color: white !important;
+      color: black !important;
+    }
+    
+    a {
+      color: black !important;
+    }
+    
+    * {
+      color: black !important;
+    }
+  }
+}

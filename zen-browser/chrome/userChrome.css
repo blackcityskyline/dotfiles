@@ -1,0 +1,183 @@
+/* Tokyo Night Moon userChrome.css - Adapted from Catppuccin Macchiato */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Tokyo Night Moon Color Palette */
+    --tokyo-bg: #222436;
+    --tokyo-fg: #c8d3f5;
+    --tokyo-ui-bg: #1b1d2b;
+    --tokyo-ui-border: #2f334d;
+    --tokyo-blue: #82aaff;
+    --tokyo-red: #ff757f;
+    --tokyo-green: #c3e88d;
+    --tokyo-yellow: #ffc777;
+    --tokyo-purple: #c099ff;
+    --tokyo-cyan: #86e1fc;
+    --tokyo-gray: #828bb8;
+    
+    /* Zen variables mapped to Tokyo colors */
+    --zen-colors-primary: #2f334d !important;          /* Tokyo border */
+    --zen-primary-color: #82aaff !important;          /* Tokyo blue */
+    --zen-colors-secondary: #2f334d !important;
+    --zen-colors-tertiary: #1b1d2b !important;        /* Tokyo UI bg */
+    --zen-colors-border: #82aaff !important;          /* Tokyo blue */
+    --toolbarbutton-icon-fill: #82aaff !important;    /* Tokyo blue */
+    --lwt-text-color: #c8d3f5 !important;             /* Tokyo fg */
+    --toolbar-field-color: #c8d3f5 !important;
+    --tab-selected-textcolor: #222436 !important;     /* Dark text on blue */
+    --toolbar-field-focus-color: #c8d3f5 !important;
+    --toolbar-color: #c8d3f5 !important;
+    --newtab-text-primary-color: #c8d3f5 !important;
+    --arrowpanel-color: #c8d3f5 !important;
+    --arrowpanel-background: #222436 !important;      /* Tokyo bg */
+    --sidebar-text-color: #c8d3f5 !important;
+    --lwt-sidebar-text-color: #c8d3f5 !important;
+    --lwt-sidebar-background-color: #161822 !important; /* Darker bg */
+    --toolbar-bgcolor: #2f334d !important;            /* Tokyo border */
+    --newtab-background-color: #222436 !important;    /* Tokyo bg */
+    --zen-themed-toolbar-bg: #1b1d2b !important;      /* Tokyo UI bg */
+    --zen-main-browser-background: #1b1d2b !important; /* Tokyo UI bg */
+    --toolbox-bgcolor-inactive: #1b1d2b !important;   /* Tokyo UI bg */
+  }
+
+  #permissions-granted-icon {
+    color: #1b1d2b !important;  /* Tokyo UI bg */
+  }
+
+  .sidebar-placesTree {
+    background-color: #222436 !important;  /* Tokyo bg */
+  }
+
+  #zen-workspaces-button {
+    background-color: #222436 !important;  /* Tokyo bg */
+  }
+
+  #TabsToolbar {
+    background-color: #1b1d2b !important;  /* Tokyo UI bg */
+  }
+
+  .urlbar-background {
+    background-color: #222436 !important;  /* Tokyo bg */
+  }
+
+  .content-shortcuts {
+    background-color: #222436 !important;  /* Tokyo bg */
+    border-color: #82aaff !important;      /* Tokyo blue */
+  }
+
+  .urlbarView-url {
+    color: #82aaff !important;  /* Tokyo blue */
+  }
+
+  #zenEditBookmarkPanelFaviconContainer {
+    background: #161822 !important;  /* Darker bg */
+  }
+
+  #zen-media-controls-toolbar {
+    & #zen-media-progress-bar {
+      &::-moz-range-track {
+        background: #2f334d !important;  /* Tokyo border */
+      }
+      
+      &::-moz-range-progress {
+        background: #82aaff !important;  /* Tokyo blue */
+      }
+    }
+  }
+
+  toolbar .toolbarbutton-1 {
+    &:not([disabled]) {
+      &:is([open], [checked])
+        > :is(
+          .toolbarbutton-icon,
+          .toolbarbutton-text,
+          .toolbarbutton-badge-stack
+        ) {
+        fill: #161822;  /* Darker bg */
+      }
+    }
+    
+    &:hover {
+      background-color: #2f334d !important;  /* Tokyo border */
+    }
+  }
+
+  /* Identity colors - adapted to Tokyo palette */
+  .identity-color-blue {
+    --identity-tab-color: #82aaff !important;    /* Tokyo blue */
+    --identity-icon-color: #82aaff !important;
+  }
+
+  .identity-color-turquoise {
+    --identity-tab-color: #86e1fc !important;    /* Tokyo cyan */
+    --identity-icon-color: #86e1fc !important;
+  }
+
+  .identity-color-green {
+    --identity-tab-color: #c3e88d !important;    /* Tokyo green */
+    --identity-icon-color: #c3e88d !important;
+  }
+
+  .identity-color-yellow {
+    --identity-tab-color: #ffc777 !important;    /* Tokyo yellow */
+    --identity-icon-color: #ffc777 !important;
+  }
+
+  .identity-color-orange {
+    --identity-tab-color: #ff966c !important;    /* Tokyo extended */
+    --identity-icon-color: #ff966c !important;
+  }
+
+  .identity-color-red {
+    --identity-tab-color: #ff757f !important;    /* Tokyo red */
+    --identity-icon-color: #ff757f !important;
+  }
+
+  .identity-color-pink {
+    --identity-tab-color: #f5c2e7 !important;    /* Tokyo extended */
+    --identity-icon-color: #f5c2e7 !important;
+  }
+
+  .identity-color-purple {
+    --identity-tab-color: #c099ff !important;    /* Tokyo purple */
+    --identity-icon-color: #c099ff !important;
+  }
+
+  hbox#titlebar {
+    background-color: #1b1d2b !important;  /* Tokyo UI bg */
+  }
+
+  #zen-appcontent-navbar-container {
+    background-color: #1b1d2b !important;  /* Tokyo UI bg */
+  }
+  
+  /* Tokyo-specific improvements */
+  .tabbrowser-tab[selected="true"] {
+    background-color: #82aaff !important;  /* Tokyo blue */
+    color: #222436 !important;             /* Dark text on blue */
+  }
+  
+  .tab-label[selected="true"] {
+    color: #222436 !important;             /* Dark text on blue */
+    font-weight: 700 !important;
+  }
+  
+  /* Better contrast for sidebar */
+  .sidebar-tab[selected="true"] {
+    background-color: #82aaff !important;
+    color: #222436 !important;
+  }
+  
+  /* Font optimizations for astigmatism */
+  * {
+    font-family: "JetBrains Mono", monospace !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.3px !important;
+  }
+  
+  #urlbar {
+    font-size: 13px !important;
+    font-weight: 600 !important;
+  }
+}
