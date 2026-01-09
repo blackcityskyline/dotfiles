@@ -1,12 +1,13 @@
 source /usr/share/cachyos-fish-config/cachyos-config.fish
-# source ~/.config/fish/functions/navigation.fish
+source ~/.config/fish/functions/navigation.fish
+
+## Functions
+
 # overwrite greeting
 # potentially disabling fastfetch
 function fish_greeting
     greeting.fish
 end
-
-## Functions
 
 # Remove current directory
 function rmpwd
@@ -27,6 +28,7 @@ function rmpwd
 end
 
 ## Useful aliases
+
 # Replace ls with eza
 alias lss='eza -al --color=always --group-directories-first --icons' # preferred listing
 alias la='eza -a --color=always --group-directories-first --icons' # all files and dirs
