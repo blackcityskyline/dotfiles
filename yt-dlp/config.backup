@@ -1,0 +1,20 @@
+# Формат по умолчанию
+format: "bestvideo[height<=1080][vcodec^=avc1]+bestaudio/best"
+
+# Обход ограничений YouTube
+extractor_args:
+  youtube:
+    - "player_client=android"
+    - "throttled_rate=100M"
+
+# Кэш куки
+cookies-from-browser: brave
+
+# Сетевые настройки
+retries: 10
+fragment-retries: 10
+socket-timeout: 10
+source-address: 0.0.0.0
+
+# Игнорировать ошибки
+ignore-errors: true

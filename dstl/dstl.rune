@@ -1,0 +1,26 @@
+dstl:
+    # Display mode
+    dmenu = false
+    startup_mode = "dual"  # or "single"
+    search_position = "top"  # or "bottom"
+    focus_search_on_switch = true
+    
+    # Terminal emulator for terminal apps
+    terminal = "kitty"
+    
+    # Recent apps settings
+    max_recent_apps = 15
+    recent_first = false
+    
+    # Theme configuration
+    theme:
+        border = "#ffffff"
+        focus = "#268025"
+        highlight = "#5d246b"
+        cursor_color = "#00ff00"  # defaults to focus color
+        cursor_shape = "block"  # "block", "underline", or "pipe"
+        cursor_blink_interval = 500  # milliseconds, 0 to disable
+        border_style = "rounded"  # "plain", "rounded", "thick", "double"
+        highlight_type = "background"  # or "foreground"
+    end
+end

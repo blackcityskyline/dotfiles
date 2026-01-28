@@ -1,0 +1,97 @@
+# Основные настройки
+backend = "xrender"  # Более стабильный для X11
+vsync = true
+refresh-rate = 0
+
+# Критически важные настройки для устранения мерцания
+unredir-if-possible = false  # Отключаем переадресацию
+
+# Исключения для фокуса (особенно для Telegram)
+focus-exclude = [
+  "class_g *= 'Telegram'",
+  "name *= 'Telegram'"
+];
+
+# Тени
+shadow = true;
+shadow-radius = 5;
+shadow-offset-x = -5;
+shadow-offset-y = -5;
+shadow-opacity = 0.5;
+
+# Полностью отключаем тени для Telegram и связанных окон
+shadow-exclude = [
+  "class_g = 'TelegramDesktop'",
+  "name = 'Telegram'",
+  "class_g ?= 'Notify-osd'",
+  "class_g = 'Cairo-clock'",
+  "_GTK_FRAME_EXTENTS@:c",
+  "window_type = 'dock'",
+  "window_type = 'desktop'"
+];
+
+# Плавное исчезновение
+fading = true;
+fade-in-step = 0.04;
+fade-out-step = 0.04;
+
+# Прозрачность (уменьшена для стабильности)
+inactive-opacity = 0.9;
+frame-opacity = 1.0;
+inactive-opacity-override = false;
+
+# Правила прозрачности - явно указываем Telegram
+opacity-rule = [
+    "100:class_g = 'TelegramDesktop'",       # Telegram всегда 100% непрозрачный
+    "100:class_g *= 'Telegram'",             # Любые окна с Telegram в названии
+    "90:class_g = 'Alacritty'",
+    "95:class_g = 'kitty'",
+    "90:class_g = 'firefox'",
+    "90:class_g = 'chromium'",
+    "90:class_g = 'Brave-browser'"
+];
+
+# Отключаем блюр для проблемных окон
+blur-background-exclude = [
+  "window_type = 'dock'",
+  "window_type = 'desktop'",
+  "_GTK_FRAME_EXTENTS@:c",
+  "class_g = 'TelegramDesktop'",  # Без блюра для Telegram
+  "class_g = 'mpv'",
+  "class_g = 'Gimp'"
+];
+
+# Оптимизации производительности
+use-damage = true;
+log-level = "error";  # Только ошибки в логах
+
+# Общие настройки окна
+detect-rounded-corners = true;
+detect-client-opacity = true;
+detect-transient = true;
+mark-wmwin-focused = true;
+mark-ovredir-focused = true;
+
+# Типы окон с безопасными настройками
+wintypes:
+{
+  tooltip = { 
+    fade = false;      # Отключаем fade для тултипов
+    shadow = false;    # Без теней
+    opacity = 1.0;     # Полная непрозрачность
+    focus = true; 
+  };
+  dock = { 
+    shadow = false; 
+    clip-shadow-above = true; 
+  };
+  dnd = { 
+    shadow = false; 
+  };
+  popup_menu = { 
+    opacity = 1.0;     # Полная непрозрачность для меню
+  };
+  dropdown_menu = { 
+    opacity = 1.0;     # Полная непрозрачность для выпадающих меню
+  };
+};

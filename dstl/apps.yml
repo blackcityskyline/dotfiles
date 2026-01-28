@@ -1,0 +1,80 @@
+# ~/.config/dstl/apps.yml
+applications:
+  # === Terminal Apps Category ===
+  - name: "Superfile"
+    description: "Terminal file manager with Vim-like controls"
+    command: "kitty superfile"
+    categories: ["Terminal Apps", "File"]
+    icon: "📁"
+    keywords: ["file", "manager", "vim", "tui"]
+  
+  - name: "YouTube TUI"
+    description: "Terminal YouTube client"
+    command: "kitty youtube-tui"
+    categories: ["Terminal Apps", "Media", "Video"]
+    icon: "🎬"
+    keywords: ["youtube", "video", "stream", "music"]
+  
+  - name: "Youtui"
+    description: "Another YouTube TUI client"
+    command: "kitty youtui"
+    categories: ["Terminal Apps", "Media", "Video"]
+    icon: "📺"
+    keywords: ["youtube", "alternative", "tui"]
+  
+  - name: "rTorrent TUI"
+    description: "Terminal torrent client with TUI interface"
+    command: "kitty rtorrent"
+    categories: ["Terminal Apps", "Network", "Download"]
+    icon: "📥"
+    keywords: ["torrent", "download", "p2p"]
+  
+  - name: "Ranger"
+    description: "Vim-like terminal file manager"
+    command: "kitty ranger"
+    categories: ["Terminal Apps", "File"]
+    icon: "🐍"
+    keywords: ["file", "manager", "vim", "python"]
+  
+  - name: "Yazi"
+    description: "Blazing fast terminal file manager"
+    command: "kitty yazi"
+    categories: ["Terminal Apps", "File"]
+    icon: "⚡"
+    keywords: ["file", "fast", "async", "rust"]
+  
+  - name: "Btop"
+    description: "Resource monitor with beautiful TUI"
+    command: "kitty btop"
+    categories: ["Terminal Apps", "System", "Monitor"]
+    icon: "📊"
+    keywords: ["system", "monitor", "resources", "cpu", "ram"]
+
+  # === System Management TUI ===
+  - name: "Systemd Manager"
+    description: "Manage systemd services and units"
+    command: "kitty systemd-manager-tui-bin"
+    categories: ["Terminal Apps", "System", "Admin"]
+    icon: "⚙️"
+    keywords: ["systemd", "services", "daemon", "manager", "tui"]
+  
+  - name: "Network Manager"
+    description: "NetworkManager TUI client"
+    command: "kitty nmtui"
+    categories: ["Terminal Apps", "System", "Network"]
+    icon: "🌐"
+    keywords: ["network", "wifi", "connection", "nmcli"]
+  
+  - name: "Neovim"
+    description: "Modern Vim-based editor"
+    command: "kitty nvim"
+    categories: ["Terminal Apps", "Editor"]
+    icon: "✏️"
+    keywords: ["editor", "vim", "code", "text"]
+  
+  - name: "Disk Analyzer"
+    description: "Disk usage analyzer"
+    command: "kitty ncdu"
+    categories: ["Terminal Apps", "System", "Disk"]
+    icon: "💾"
+    keywords: ["disk", "space", "usage", "analyzer"]

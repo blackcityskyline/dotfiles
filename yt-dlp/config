@@ -1,0 +1,16 @@
+# Использовать куки из браузера Brave
+--cookies-from-browser brave
+
+
+
+# Опционально — дополнительные параметры
+--ignore-errors
+--force-ipv4
+--user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+--referer "https://www.youtube.com/"
+--no-check-certificate
+--cookies-from-browser brave
+
+--format "(bv*[vcodec^=avc][height<=1080]+ba)/(bv*[vcodec!*=av01][height<=1080]+ba)/(b[height<=1080])"
+
+
