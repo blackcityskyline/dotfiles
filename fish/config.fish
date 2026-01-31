@@ -79,7 +79,8 @@ alias session='lock-sessions'
 alias user-status='loginctl user-status'
 alias list-users='loginctl list-users'
 
-# Others & Terminal
+# Terminal, Files, Manage
+alias snvim='sudo XDG_CONFIG_HOME="$HOME/.config" XDG_DATA_HOME="$HOME/.local/share" XDG_CACHE_HOME="$HOME/.cache" XDG_STATE_HOME="$HOME/.local/state" NVIM_APPNAME="nvim" nvim'
 alias vcat='vimcat'
 alias vc='vimcat'
 alias c='cat'
@@ -106,6 +107,42 @@ alias pubip='curl ifconfig.me && echo ""'
 alias lasterrors='journalctl -b -p err'
 alias reload='source $HOME/.config/fish/config.fish'
 alias d='dstl'
+alias feh="feh --scale-down"
+alias systemd-manager="systemd-manager-tui"
+## List of tui/cli apps
+alias tui-list="echo systemd-manager-tui &&
+                echo tui-network bluetui hygg
+                echo ranger dstl yazi spf tldr
+                echo navi gyr btop htop cava
+                echo youtube-tui youtui pipes
+                echo wavemon nmtui chatterm
+                echo unimatrix cargo-seek
+                echo pastel smassh tmux tera
+                echo nvim atuin chafa sc-im
+                echo gitui gophertube bookokrat
+                echo maze-tui subtui scope-tui
+                echo gping twitch-tui termscp
+                echo traxor ssh-list trippy
+                echo bandwhich binsider rtorrent
+                echo screenkey speedtest-cli
+                echo streamlink tty-clock fisher
+                echo caligula wiper bbcli chamber
+                echo depot rsfrac traceview
+                echo rucola tenki sigye ttysvr xplr
+                echo tracker tv calcure"
+## File & Directory
+alias sl='ls'
+alias mv='mv -i -nv'
+alias cp='cp -i -rnv'
+alias rm='rm -i'
+alias toclip='xclip -i -selection clipboard'
+alias fromclip='xclip -o -selection clipboard'
+alias da='du -sch' # check current directory size
+alias lad='ls -d .*/' # list directories starting with dot only	
+alias lsa='ls -d .*' # list hidden directories & files starting with dot
+alias lsbig='ls -lS --group-directories-first | head -n 11' # listk biggest directories and show top10
+alias lsd='ls -d */' # list directories only 
+alias ut='tar xf' # tar
 
 # Pacman
 alias pacupg='sudo pacman -Syu'
@@ -149,33 +186,19 @@ alias yaorph='yay -Qtd'
 alias yainsd='yay -S --asdeps'
 alias yamir='yay -Syy'
 alias yaupd='yay -Sy'
+alias parin='paru -S'
 
 # Pacman others
 alias pkglist='pacman -Qs --color=always | less -R'
 alias pacman-fzf-local="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
 alias pacman-fzf-remote="pacman -Slq | fzf --preview 'pacman -Si {}' --layout=reverse"
 alias paclocss='pacman -Qs --color=always | less -R'
-alias pacloc='pacman -Qi | grep -E "Название|Описание" | less'
+alias pacloc='pacman -Qi | grep -E "Название | Описание" | less'
 alias pacFU='sudo pacman -Syyu'
 alias pacU='sudo pacman -Syu'
-
 alias fullupdate='sudo pacman -Syyu'
 alias update='sudo pacman -Syu'
 alias cleanup='sudo pacman -Rns (pacman -Qtdq)'
-
-# File & Directory
-alias sl='ls'
-alias mv='mv -i -nv'
-alias cp='cp -i -rnv'
-alias rm='rm -i'
-alias toclip='xclip -i -selection clipboard'
-alias fromclip='xclip -o -selection clipboard'
-alias da='du -sch' # check current directory size
-alias lad='ls -d .*/' # list directories starting with dot only	
-alias lsa='ls -d .*' # list hidden directories & files starting with dot
-alias lsbig='ls -lS --group-directories-first | head -n 11' # listk biggest directories and show top10
-alias lsd='ls -d */' # list directories only 
-alias ut='tar xf' # tar
 
 # Network 
 alias ipv4="ip addr show | grep 'inet ' | grep -v '127.0.0.1' | cut -d' ' -f6 | cut -d/ -f1"
@@ -187,6 +210,7 @@ alias pacman-proxy='http_proxy="http://127.0.0.1:12334" https_proxy="http://127.
 alias paru-proxy='http_proxy="http://127.0.0.1:12334" https_proxy="http://127.0.0.1:12334" paru'
 alias yay-proxy='http_proxy="http://127.0.0.1:12334" https_proxy="http://127.0.0.1:12334" yay'
 alias proxy='http_proxy="http://127.0.0.1:12334" https_proxy="http://127.0.0.1:12334" '
+alias nmtui='cd ~/bin/ && ./nmtui'
 # System
 alias sctl='sudo systemctl'
 alias Stop='sudo systemctl stop'
@@ -200,3 +224,13 @@ alias lsblkk='lsblk -o NAME,FSTYPE,PARTLABEL,LABEL,MOUNTPOINT,TYPE,TRAN,SIZE,MOD
 alias tlog='tail -f /var/log/syslog || journalctl'
 alias drop-caches 'echo 3 | sudo tee /proc/sys/vm/drop_caches'
 alias swapr 'sudo swapoff -a && sudo swapon -a'
+## Display critical errors
+alias syslog_emerg="sudo dmesg --level=emerg,alert,crit"
+## Output common errors
+alias syslog="sudo dmesg --level=err,warn"
+## Print logs from x server
+alias xlog='grep "(EE)\|(WW)\|error\|failed" ~/.local/share/xorg/Xorg.0.log'
+## Remove archived journal files until the disk space they use falls below 100M
+alias vacuum="journalctl --vacuum-size=100M"
+## Make all journal files contain no data older than 2 weeks
+alias vacuum_time="journalctl --vacuum-time=2weeks"
